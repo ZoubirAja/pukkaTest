@@ -30,8 +30,7 @@ class MessageSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Message
-        fields = ('id', 'type', 'author', 'author_id', 'conversation', 'text',
-                  'infos', 'created_at')
+        fields = ('id', 'type', 'author', 'author_id', 'conversation', 'text', 'created_at')
 
         extra_kwargs = {
             'created_at': {'read_only': True},
@@ -43,6 +42,10 @@ class MessageSerializer(serializers.ModelSerializer):
         message = Message.objects.create(**validated_data)
         message.author.points += 1
         message.author.save()
+        reward = instantiate_reward_message(message.author.first_name, message.author.points)
+        if reward != False:
+            reward.conversation = message.conversation
+            reward.save()
         return message
 
 

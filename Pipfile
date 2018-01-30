@@ -1,0 +1,27 @@
+[[source]]
+
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+
+[packages]
+
+certifi = "==2018.1.18"
+chardet = "==3.0.4"
+coreapi = "==2.3.3"
+coreschema = "==0.0.4"
+django = "==2.0.1"
+djangorestframework = "==3.7.7"
+idna = "==2.6"
+itypes = "==1.1.0"
+"jinja2" = "==2.10"
+markupsafe = "==1.0"
+pytz = "==2017.3"
+requests = "*"
+uritemplate = "==3.0.0"
+"urllib3" = "==1.22"
+
+
+[dev-packages]
+
